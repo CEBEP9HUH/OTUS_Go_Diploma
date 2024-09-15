@@ -17,9 +17,6 @@ jobs:
         with:
           go-version: 1.22.0
 
-      - name: Set GOROOT
-        run: export GOROOT=$(go env GOROOT)
-
       - name: Linters
         uses: golangci/golangci-lint-action@v3
         with:
