@@ -9,7 +9,9 @@ jobs:
   lint:
     runs-on: ubuntu-latest
     steps:
-      - uses: echo $HOME
+      - name: HOME
+        run: echo $HOME
+
       - name: Check out code
         uses: actions/checkout@v3
 
