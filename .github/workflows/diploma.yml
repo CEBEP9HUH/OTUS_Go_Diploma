@@ -19,11 +19,6 @@ jobs:
 
       - name: Linters
         uses: golangci/golangci-lint-action@v3
-        with:
-          version: v1.50.1
-          working-directory: .
-          env:
-            GOROOT: $(go env GOROOT)
 
   # tests_by_makefile_linux:
   #   runs-on: ubuntu-latest
