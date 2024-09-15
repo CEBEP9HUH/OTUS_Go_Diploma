@@ -61,3 +61,23 @@ jobs:
 
       - name: make client
         run: make client
+
+  tests_by_makefile_macos:
+    runs-on: macos-latest
+    steps:        
+      - name: Set up Go
+        uses: actions/setup-go@v3
+        with:
+          go-version: 1.22
+          
+      - name: Check out code
+        uses: actions/checkout@v3
+
+      - name: make test
+        run: make test
+
+      - name: make server
+        run: make server
+
+      - name: make client
+        run: make client

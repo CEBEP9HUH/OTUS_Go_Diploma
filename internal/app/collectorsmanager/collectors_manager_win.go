@@ -8,5 +8,5 @@ import (
 )
 
 func getCollectorsMap(l CollectorsList) []sc.StatisticCollector {
-	return []sc.StatisticCollector
+	return []sc.StatisticCollector{}
 }
