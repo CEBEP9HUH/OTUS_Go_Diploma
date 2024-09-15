@@ -1,6 +1,6 @@
 module github.com/CEBEP9HUH/OTUS_Go_Diploma
 
-go 1.22
+go 1.21.5
 
 require (
 	github.com/golang/protobuf v1.5.0

@@ -2,7 +2,7 @@ package collector
 
 import "errors"
 
-// Общие ошибки сборщиков статистики
+// Общие ошибки сборщиков статистики.
 var (
 	ErrCPUInfoNotFound       = errors.New("can't find cpu info")
 	ErrUserModeNotFound      = errors.New("can't find user mode info")

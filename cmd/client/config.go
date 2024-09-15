@@ -30,5 +30,6 @@ func init() {
 	flag.StringVar(&address, "addr", defaultAddr, "statistic server address:port")
 	flag.DurationVar(&collectDuration, "collect", defaultCollectDuration, "statistic collect duration")
 	flag.DurationVar(&sendDuration, "interval", defaultSendDuration, "statistic sending interval")
-	flag.Uint64Var(&statType, "print", defaultStatType, "statistic to print\n\t0 - cpu\n\t1 - io\n\t2 - load\n\t3 - disk\n\t4 - node")
+	flag.Uint64Var(&statType, "print", defaultStatType,
+		"statistic to print\n\t0 - cpu\n\t1 - io\n\t2 - load\n\t3 - disk\n\t4 - node")
 }
