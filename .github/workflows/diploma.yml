@@ -19,6 +19,8 @@ jobs:
 
       - name: Linters
         uses: golangci/golangci-lint-action@v3
+        with:
+          working-directory: .
 
   # tests_by_makefile_linux:
   #   runs-on: ubuntu-latest
