@@ -21,16 +21,14 @@ type lineData struct {
 	Mnt   interface{}
 }
 
-var (
-	nodeHeader = lineData{
-		FS:    "Filesystem",
-		Nodes: "Inodes",
-		Used:  "IUsed",
-		Free:  "IFree",
-		Use:   "IUse%",
-		Mnt:   "Mounted on",
-	}
-)
+var nodeHeader = lineData{
+	FS:    "Filesystem",
+	Nodes: "Inodes",
+	Used:  "IUsed",
+	Free:  "IFree",
+	Use:   "IUse%",
+	Mnt:   "Mounted on",
+}
 
 func makeTestTable(header lineData, data []lineData) string {
 	const (
