@@ -1,0 +1,42 @@
+syntax = "proto3";
+
+package api.grpc.statistic.data;
+
+//! Параметры рассылки статистики
+message CPUUsage {
+	float user_mode = 1;
+	float system_mode = 2;
+	float idle = 3;
+}
+
+message DiskUsage {
+	map<string, Usage> usage = 1;
+	message Usage {
+		string fs = 1;
+		float percent = 2;
+	}
+}
+
+message NodeUsage {
+	map<string, Usage> usage = 1;
+	message Usage {
+		string fs = 1;
+		float percent = 2;
+	}
+}
+
+message IOStat {
+	map<string, Info> usage = 1;
+	message Info {
+		float tps = 1;
+		float read_kbs = 2;
+		float write_kbs = 3;
+	}
+}
+
+message LoadAvg {
+	float min1 = 1;
+	float min5 = 2;
+	float min15 = 3;
+}
+
