@@ -50,7 +50,7 @@ func TestConcurentAddition(t *testing.T) {
 		}()
 	}
 	wg.Wait()
-	assert.Equal(t, added.Load(), int32(tl.Len()))
+	assert.Equal(t, int(added.Load()), tl.Len())
 	<-time.After(interval * 2)
 	tl.DeleteExpired()
 	assert.Equal(t, 0, tl.Len())
