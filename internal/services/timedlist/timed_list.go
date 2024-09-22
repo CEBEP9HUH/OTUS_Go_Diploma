@@ -85,7 +85,6 @@ func (tl *timedList[T]) Add(data T, t time.Time) bool {
 		return true
 	}
 
-	defer tl.len.Add(1)
 	pos := tl.last
 	for {
 		if pos.timestamp.Equal(n.timestamp) {
@@ -100,6 +99,7 @@ func (tl *timedList[T]) Add(data T, t time.Time) bool {
 			pos.prev = &n
 			n.next = pos
 			tl.first = &n
+			tl.len.Add(1)
 			return true
 		}
 	}
@@ -108,6 +108,8 @@ func (tl *timedList[T]) Add(data T, t time.Time) bool {
 	if tl.last.next != nil {
 		tl.last = &n
 	}
+
+	tl.len.Add(1)
 	return true
 }
 
