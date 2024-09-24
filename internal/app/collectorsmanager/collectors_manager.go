@@ -16,9 +16,7 @@ const (
 	minimumCollectInterval = defaults.MinStatInterval
 )
 
-var (
-	ErrEmptyCollectorsList = errors.New("all statistic collectors are disabled")
-)
+var ErrEmptyCollectorsList = errors.New("all statistic collectors are disabled")
 
 type collectorsManager struct {
 	statisticOutput chan<- statistic.Statistic
