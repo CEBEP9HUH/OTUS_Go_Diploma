@@ -5,6 +5,7 @@ package linux
 
 import (
 	"context"
+	"errors"
 	"fmt"
 
 	"github.com/CEBEP9HUH/OTUS_Go_Diploma/internal/services/cmdexecutor"
@@ -47,7 +48,10 @@ func (dul *diskUsageLinux) extractStat(data string) (statistic.Statistic, error)
 		return nil, err
 	}
 	if !dul.colIDIsSet {
-		dul.setCollIDs(table[0], []string{useColHead, fsColHead, mountColHead})
+		err := dul.setCollIDs(table[0], []string{useColHead, fsColHead, mountColHead})
+		if err != nil {
+			return nil, errors.Join(collector.ErrDiskUsageInfoNotFound, err)
+		}
 	}
 	res := statistic.DiskUsage{
 		BlockUsage: make(map[string]statistic.FSDiskInfo, len(table)-1),
