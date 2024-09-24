@@ -23,7 +23,7 @@ type ioStatLinux struct {
 
 func MakeIOStatStatCollector() collector.StatisticCollector {
 	return &ioStatLinux{
-		cmd: standart.MakeStandartCmdExecutor("/usr/bin/iostat", "-d", "-k"),
+		cmd: standart.MakeStandardCmdExecutor("/usr/bin/iostat", "-d", "-k"),
 	}
 }
 

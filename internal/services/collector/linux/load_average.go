@@ -21,7 +21,7 @@ type loadAvgLinux struct {
 
 func MakeLoadAvgStatCollector() collector.StatisticCollector {
 	return &loadAvgLinux{
-		cmd: standart.MakeStandartCmdExecutor("/usr/bin/top", "-b", "-n1"),
+		cmd: standart.MakeStandardCmdExecutor("/usr/bin/top", "-b", "-n1"),
 	}
 }
 

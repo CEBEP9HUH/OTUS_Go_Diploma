@@ -17,8 +17,7 @@ const (
 )
 
 var (
-	ErrEmptyCollectorsList  = errors.New("all statistic collectors are disabled")
-	ErrEmptyStatisticOutput = errors.New("statistic output can't be nil")
+	ErrEmptyCollectorsList = errors.New("all statistic collectors are disabled")
 )
 
 type collectorsManager struct {

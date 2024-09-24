@@ -14,8 +14,8 @@ var (
 func GetHeadsIDs(header []string, heads []string) (map[string]int, error) {
 	res := make(map[string]int, len(heads))
 	for i, head := range header {
-		for _, neededHhead := range heads {
-			if head == neededHhead {
+		for _, neededHead := range heads {
+			if head == neededHead {
 				if _, ok := res[head]; ok {
 					return nil, ErrHeadersNotFound
 				}
@@ -38,12 +38,12 @@ func ParseTable(table string, lineSep string, skipLines, maxLines int) ([][]stri
 	for _, l := range lines[skipLines:] {
 		trimmed = append(trimmed, strings.TrimSpace(l))
 	}
-	return splitTable(trimmed, delimetersFinder(trimmed, maxLines)), nil
+	return splitTable(trimmed, delimitersFinder(trimmed, maxLines)), nil
 }
 
 // private section
 
-func delimetersFinder(lines []string, maxLines int) []int {
+func delimitersFinder(lines []string, maxLines int) []int {
 	var colDelims []int
 	var isPossibleDelimeter bool
 

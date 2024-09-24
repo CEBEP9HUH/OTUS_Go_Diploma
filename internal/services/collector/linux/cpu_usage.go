@@ -21,7 +21,7 @@ type cpuUsageLinux struct {
 
 func MakeCPUUsageStatCollector() collector.StatisticCollector {
 	return &cpuUsageLinux{
-		cmd: standart.MakeStandartCmdExecutor("/usr/bin/top", "-b", "-n1"),
+		cmd: standart.MakeStandardCmdExecutor("/usr/bin/top", "-b", "-n1"),
 	}
 }
 

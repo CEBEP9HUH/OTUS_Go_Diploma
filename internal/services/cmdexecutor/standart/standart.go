@@ -15,7 +15,7 @@ type cmdExecutor struct {
 	args []string
 }
 
-func MakeStandartCmdExecutor(cmd string, args ...string) cmdexecutor.CmdExecutor {
+func MakeStandardCmdExecutor(cmd string, args ...string) cmdexecutor.CmdExecutor {
 	ret := &cmdExecutor{
 		cmd:  cmd,
 		args: []string{cmd},

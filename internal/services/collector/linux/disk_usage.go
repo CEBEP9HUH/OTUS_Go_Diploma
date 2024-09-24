@@ -22,7 +22,7 @@ type diskUsageLinux struct {
 
 func MakeDiskUsageStatCollector() collector.StatisticCollector {
 	return &diskUsageLinux{
-		cmd: standart.MakeStandartCmdExecutor("/usr/bin/df", "-k"),
+		cmd: standart.MakeStandardCmdExecutor("/usr/bin/df", "-k"),
 	}
 }
 

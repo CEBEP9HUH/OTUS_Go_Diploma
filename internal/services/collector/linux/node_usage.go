@@ -23,7 +23,7 @@ type nodeUsageLinux struct {
 
 func MakeNodeUsageStatCollector() collector.StatisticCollector {
 	return &nodeUsageLinux{
-		cmd: standart.MakeStandartCmdExecutor("/usr/bin/df", "-i"),
+		cmd: standart.MakeStandardCmdExecutor("/usr/bin/df", "-i"),
 	}
 }
 
