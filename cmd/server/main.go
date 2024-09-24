@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"os"
 	"os/signal"
+	"path/filepath"
 	"syscall"
 
 	"github.com/CEBEP9HUH/OTUS_Go_Diploma/internal/app/sysstatdeamon"
@@ -22,7 +23,13 @@ func main() {
 	ctx, cancel := signal.NotifyContext(context.Background(), signalsList...)
 	defer cancel()
 
-	err := config.InitConfig("config.json")
+	ex, err := os.Executable()
+	if err != nil {
+		panic(err)
+	}
+	exPath := filepath.Dir(ex)
+	cfgPath := filepath.Join(exPath, "config.json")
+	err = config.InitConfig(cfgPath)
 	if err != nil {
 		panic(err)
 	}
