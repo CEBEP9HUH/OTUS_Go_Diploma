@@ -9,37 +9,75 @@ jobs:
   lint:
     runs-on: ubuntu-latest
     steps:
-      - name: Extract branch name
-        run: echo "BRANCH=${GITHUB_REF#refs/heads/}" >> $GITHUB_ENV
+      - name: Check out code
+        uses: actions/checkout@v3
 
       - name: Set up Go
         uses: actions/setup-go@v3
         with:
-          go-version: ^1.21
-
-      - name: Check out code
-        uses: actions/checkout@v3
+          go-version: 1.22.0
 
       - name: Linters
         uses: golangci/golangci-lint-action@v3
         with:
-          version: v1.50.1
-          working-directory: ${{ env.BRANCH }}
-          
-  tests_by_makefile:
+          working-directory: .
+
+  tests_by_makefile_linux:
     runs-on: ubuntu-latest
-    steps:
-      - name: Extract branch name
-        run: echo "BRANCH=${GITHUB_REF#refs/heads/}" >> $GITHUB_ENV
-        
+    steps:        
       - name: Set up Go
         uses: actions/setup-go@v3
         with:
-          go-version: ^1.21
-          
+          go-version: 1.22.0
+
       - name: Check out code
         uses: actions/checkout@v3
 
-      - name: make all
-        run: make all
-        working-directory: ${{ env.BRANCH }}
+      - name: make test
+        run: make test
+
+      - name: make server
+        run: make server
+
+      - name: make client
+        run: make client
+
+  tests_by_makefile_windows:
+    runs-on: windows-latest
+    steps:        
+      - name: Set up Go
+        uses: actions/setup-go@v3
+        with:
+          go-version: 1.22.0
+
+      - name: Check out code
+        uses: actions/checkout@v3
+
+      - name: make test
+        run: make test
+
+      - name: make server
+        run: make server
+
+      - name: make client
+        run: make client
+
+  tests_by_makefile_macos:
+    runs-on: macos-latest
+    steps:        
+      - name: Set up Go
+        uses: actions/setup-go@v3
+        with:
+          go-version: 1.22.0
+
+      - name: Check out code
+        uses: actions/checkout@v3
+
+      - name: make test
+        run: make test
+
+      - name: make server
+        run: make server
+
+      - name: make client
+        run: make client

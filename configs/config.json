@@ -1,0 +1,13 @@
+{
+    "sysStatDaemon": {
+        "logLevel": "info",
+        "periodSec": 1,
+        "collectors": {
+            "enableLoadAvg": true,
+            "enableCpuUsage": true,
+            "enableDiskUsage" : true,
+            "enableNodeUsage" : true,
+            "enableIoStat" : true
+        }
+    }
+}
